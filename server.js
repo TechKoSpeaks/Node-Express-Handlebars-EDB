@@ -1,28 +1,28 @@
+// Requiring all the needed express, handlebars and routes for server //
 const express = require("express");
 const exphbs = require("express-handlebars");
-const routes = require("./controllers/catsController.js");
+var routes = require("./controllers/burgers_controller.js");
 
+// Setting up port 8080 listener //
 const PORT = process.env.PORT || 8080;
-
+// Creating the constant for the app //
 const app = express();
 
-// Serve static content for the app from the "public" directory in the
-// application directory.
-app.use(express.static("public"));
+// Serves the static files to be arrayed correctly into the directory //
+app.use(express.static(__dirname + "/public"));
 
-// Parse application body
+// Takes the application body and parses it/ encodes into json data //
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
+// Setting up the view engine for handlebars to be utilized on the main layout //
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
+// Using the correct routes needed for burgers_controller //
 app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, () => {
-  // Log (server-side) when our server has started
-  console.log(`Server listening on: http://localhost:${ PORT}`);
+// Setting up the listen function on localhost //
+app.listen(PORT, function () {
+  console.log("Server listening on: http://localhost:" + PORT);
 });
