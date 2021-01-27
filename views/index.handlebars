@@ -1,0 +1,68 @@
+  <style>
+body {
+  background-image: url('assets/images/burger.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.row {
+  background-image: url('assets/images/burger-icon.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.jumbotron {
+  background: transparent;
+}
+.card {
+    background: transparent;
+}
+</style>
+<div class="container text-center">
+  <div class="jumbotron text-center text-black">
+      <h1 style="color: black;" class="display-6" id="app-title"> Burger Lovin!!</h1>
+      <p>Time to Feast!</p>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card border border-primary">
+        <div class="card-header" style="background-color: rgb(184, 71, 184); color: yellow">
+          List of Burgers to Feast On!
+        </div>
+        <!--Div to hold burgers that have not been devoured yet-->
+        <div class="card-body">
+          {{#each burgers}}
+          {{#unless devoured}}
+          {{> foods/food-block}}
+          {{/unless}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border border-success">
+        <div class="card-header text-black" style="background-color: rgb(184, 71, 184); color: yellow">
+          Burgers That Have Been Devoured!
+        </div>
+        <div class="card-body">
+          {{#each burgers}}
+          {{#if devoured}}
+          {{> foods/food-block}}
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="create-form" style="text-align: center;">
+    <div class="form-group" style="color: black;">
+      <br>
+      <div class="form-group">
+        <label for="ca">Burger Name:</label>
+        <input type="text" id="ca" name="burger_name">
+      </div>
+      <button type="submit" class="btn" style="background-color: rgb(184, 71, 184); color: yellow">Add Burger</button>
+    </div>
+    <br>
+  </form>
+</div>
