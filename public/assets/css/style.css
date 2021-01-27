@@ -17,3 +17,21 @@ li {
 .form-group {
   margin-bottom: 5px;
 }
+body {
+  background-image: url('assets/images/burger.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+/* {{!-- .row {
+  background-image: url('assets/images/chef.jpg');
+  background-repeat: no-repeat;
+  
+  background-size: 100% 100%;
+} --}} */
+.jumbotron {
+  background: transparent;
+}
+.card {
+    background: transparent;
+}

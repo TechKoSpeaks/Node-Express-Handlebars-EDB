@@ -1,68 +1,75 @@
-  <style>
-body {
-  background-image: url('assets/images/burger.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-.row {
-  background-image: url('assets/images/burger-icon.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-.jumbotron {
-  background: transparent;
-}
-.card {
+<style>
+  body {
+    background-image: url('assets/images/burger.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: 'Yusei Magic', sans-serif;
+  }
+
+  .jumbotron {
     background: transparent;
-}
+  }
+
+  .card {
+    background: transparent;
+    font-family: 'Yusei Magic', sans-serif;
+  }
+
+  img {
+    width: 20%;
+    height: auto;
+  }
 </style>
 <div class="container text-center">
   <div class="jumbotron text-center text-black">
-      <h1 style="color: black;" class="display-6" id="app-title"> Go Burger OR Go Home! </h1>
-      <p style="color: red;">Zoom, Zoom, Zoom! My Supernova Burger!</p>
+    <h1 style="color: black;" class="display-6" id="app-title"><strong> Burger Feast!!</strong></h1>
+    <p>Get Ready for Burgers on Burgers!!</p>
+    <img src="/assets/images/burger-icon2.png" alt="burger" class="icon-burger mb-2">
+
+    <form class="create-form" style="text-align: center;">
+      <div class="form-group" style="color: black;">
+        <div class="form-group" style="background-color: rgba(0, 0, 0, 0.329);">
+          <label for="ca"><strong style="color:rgb(124, 255, 2)">BURGER NAME:</strong></label>
+          <input type="text" id="ca" name="burger_name">
+          <h5 style="color:rgb(123, 255, 0)">Click to Add burger!</h5>
+          <button type="submit" class="btn" style="background-color: rgb(106, 192, 26); color: rgb(255, 255, 255)">Add
+            Burger</button>
+        </div>
+      </div>
+
+    </form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card border border-primary">
+          <div class="card-header" style="background-color: rgba(0, 0, 0, 0.445); color: rgb(140, 248, 52)">
+            <h2> Burger Wish List:</h2>
+          </div>
+          <!--Div to hold burgers that have not been devoured yet-->
+          <div class="card-body" style="background-color: transparent;">
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> foods/food-block}}
+            {{/unless}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border border-success">
+          <div class="card-header" style="background-color: rgba(0, 0, 0, 0.445); color: rgb(140, 248, 52)">
+            <h2> Devoured Burgers:</h2>
+          </div>
+          <div class="card-body">
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> foods/food-block}}
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card border border-primary">
-        <div class="card-header" style="background-color: rgb(184, 71, 184); color: yellow">
-          Burgers Awaiting To Be Devoured!
-        </div>
-        <!--Div to hold burgers that have not been devoured yet-->
-        <div class="card-body">
-          {{#each burgers}}
-          {{#unless devoured}}
-          {{> foods/food-block}}
-          {{/unless}}
-          {{/each}}
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card border border-success">
-        <div class="card-header text-black" style="background-color: rgb(184, 71, 184); color: yellow">
-          Burgers That Have Been Devoured!
-        </div>
-        <div class="card-body">
-          {{#each burgers}}
-          {{#if devoured}}
-          {{> foods/food-block}}
-          {{/if}}
-          {{/each}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <form class="create-form" style="text-align: center;">
-    <div class="form-group" style="color: black;">
-      <br>
-      <div class="form-group">
-        <label for="ca">Burger Name:</label>
-        <input type="text" id="ca" name="burger_name">
-      </div>
-      <button type="submit" class="btn" style="background-color: rgb(184, 71, 184); color: yellow">Add Burger</button>
-    </div>
-    <br>
-  </form>
+
 </div>

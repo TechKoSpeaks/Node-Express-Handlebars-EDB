@@ -1,13 +1,14 @@
 <li>
 	{{burger_name}}
 	{{#unless devoured }}
-	<button style="background-color: yellow;" class="change-burger" data-id="{{id}}" data-newburger="{{id}}">
-		Devour This!
+	<button style="background-color: rgba(15, 17, 150, 0.829); color:rgb(255, 255, 255)" class="change-burger"
+		data-id="{{id}}" data-newburger="{{id}}">
+		Devour Me!
 	</button>
 	{{/unless }}
 	{{#if devoured }}
 	<button class="delete-burger btn btn-danger" data-id="{{this.id}}">
-		Delete!
+		Delete It!
 	</button>
 	{{/if }}
 </li>
