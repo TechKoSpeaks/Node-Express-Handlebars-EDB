@@ -2,7 +2,7 @@
 $(() => {
   $(".change-burger").on("click", function () {
     const id = $(this).data("id");
-    const newBurger = true;
+    const newBurger = $(this).data("newburger");
     const newBurgerPost = { value: newBurger };
     // Send the PUT request.
     $.ajax(`/api/burgers/${id}/devoured`, {
@@ -16,8 +16,6 @@ $(() => {
       location.reload();
     });
   });
-
-  
   $(".create-form").on("submit", (event) => {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -33,6 +31,15 @@ $(() => {
       location.reload();
     });
   });
-
-
+  // Add your code to delete a burger when a ".delete-burger" button is clicked.
+  $(".delete-burger").on("click", function () {
+    const id = $(this).data("id");
+    // Send the DELETE request.
+    $.ajax(`/api/burgers/${id}`, {
+      type: "DELETE",
+    }).then(() => {
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  });
 });
