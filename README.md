@@ -31,7 +31,7 @@ To run application, go into integrated terminal and run:
 
 ## Working Application
 
-![Travis Ko Node Express Handlebars](./assets/demo.gif)
+![Travis Ko Node Express Handlebars](./public/assets/demo.gif)
 <br />
 
 ## Links
