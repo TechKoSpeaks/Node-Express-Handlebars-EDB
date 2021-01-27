@@ -1,4 +1,4 @@
-// Import the ORM to create functions that will interact with the database.
+// Importing the ORM to create functions that will interact with the database. //
 const orm = require("../config/orm.js");
 const burgers = {
   all: (cb) => {
@@ -6,23 +6,27 @@ const burgers = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+
+  // Function for creating burgers //
   create: (newBurgers, cb) => {
     orm.insertOne("burgers", newBurgers, (res) => {
       cb(res);
     });
   },
+  // Function for updating burgers data //
   update: (burgersData, criteria, cb) => {
     orm.updateOne("burgers", burgersData, criteria, (res) => {
       cb(res);
     });
   },
-  // Add a delete method which uses the `orm.deleteOne` method.
+
+  // ORM function for deleting burgers data //
   delete: (condition, cb) => {
     orm.deleteOne("burgers", condition, (res) => {
       cb(res);
     });
   },
 };
-// Export the database functions for the controller (catsController.js).
+
+// Using module.exports to export data to burgerController.js //
 module.exports = burgers;
