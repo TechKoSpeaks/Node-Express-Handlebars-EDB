@@ -39,7 +39,7 @@ Github Repository link:
 https://github.com/TechKoSpeaks/Node-Express-Handlebars-EDB.git
 <br />
 Deployed Heroku Link:
-https://guarded-woodland-68866.herokuapp.com/ 
+https://eatzeburger.herokuapp.com/
 ## License
 
 This application is licensed by MIT.
